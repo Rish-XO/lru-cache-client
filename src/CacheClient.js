@@ -9,12 +9,17 @@ const CacheClient = () => {
 
  const handleSet = async () => {
     try {
-      const response = await axios.post(`http://localhost:8080/set?key=${key}&value=${value}&exp=${exp}`);
-      setResponse('Value set successfully');
+        const response = await axios.post('http://localhost:8080/set', {
+            key,
+            value,
+            exp: parseInt(exp, 10), // Ensure exp is sent as an integer
+        });
+        setResponse('Value set successfully');
     } catch (error) {
-      setResponse('Error setting value');
+        setResponse('Error setting value');
     }
- };
+};
+
 
  const handleGet = async () => {
     try {
