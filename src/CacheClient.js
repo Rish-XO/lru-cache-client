@@ -31,31 +31,38 @@ const CacheClient = () => {
  };
 
  return (
-    <div>
+    <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
       <h2>LRU Cache Client</h2>
-      <input
-        type="text"
-        placeholder="Key"
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Value"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Expiration (seconds)"
-        value={exp}
-        onChange={(e) => setExp(e.target.value)}
-      />
-      <button onClick={handleSet}>Set</button>
-      <button onClick={handleGet}>Get</button>
-      <p>{response}</p>
+      <div style={{ marginBottom: '10px' }}>
+        <input
+          type="text"
+          placeholder="Key"
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+          style={{ marginRight: '10px' }}
+        />
+        <input
+          type="text"
+          placeholder="Value"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          style={{ marginRight: '10px' }}
+        />
+        <input
+          type="text"
+          placeholder="Expiration (seconds)"
+          value={exp}
+          onChange={(e) => setExp(e.target.value)}
+        />
+      </div>
+      <div>
+        <button style={{ marginRight: '10px' }} onClick={handleSet}>Set</button>
+        <button onClick={handleGet}>Get</button>
+      </div>
+      <p style={{ marginTop: '10px' }}>{response}</p>
     </div>
- );
+  );
+  
 };
 
 export default CacheClient;
